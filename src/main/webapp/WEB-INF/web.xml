@@ -1,0 +1,61 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>JobSeekerRegistrationController</servlet-name>
+  	<display-name>JobSeekerRegistrationController</display-name>
+  	<description></description>
+  	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.JobSeekerRegistrationController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
+  	<display-name>OnlineJobAppointmentSystemController</display-name>
+  	<description></description>
+  	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.OnlineJobAppointmentSystemController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ManageConsultantController</servlet-name>
+  	<display-name>ManageConsultantController</display-name>
+  	<description></description>
+  	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.ManageConsultantController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ManageAppointmentController</servlet-name>
+  	<display-name>ManageAppointmentController</display-name>
+  	<description></description>
+  	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.ManageAppointmentController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
+  	<url-pattern>/RegisterJobSeeker</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
+  	<url-pattern>/getJobSeeker</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
+  	<url-pattern>/bookAppointment</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
+  	<url-pattern>/LoginAdmin</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+   	<servlet-name>ManageConsultantController</servlet-name>
+   	<url-pattern>/manageConsultantController</url-pattern>
+   </servlet-mapping>
+  
+   <servlet-mapping>
+   	<servlet-name>ManageAppointmentController</servlet-name>
+   	<url-pattern>/ManageAppointmentController</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+   	<servlet-name>ManageAppointmentController</servlet-name>
+   	<url-pattern>/getAppointmentController</url-pattern>
+   </servlet-mapping>
+</web-app>
