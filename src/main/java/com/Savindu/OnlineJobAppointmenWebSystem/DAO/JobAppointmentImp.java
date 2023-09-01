@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.DAOUtils.DBDriverManager;
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.DAOUtils.DBDriverManagerFactory;
 import com.Savindu.OnlineJobAppointmenWebSystem.Model.Appointment;
@@ -77,10 +79,37 @@ public class JobAppointmentImp implements JobAppointment {
 	    connection.close();
 	    ps.close();
 		return appointment;
+		
 	}
-
-
-
 	
-
+	public List<Appointment> fetchAllJobAppointment() throws ClassNotFoundException, SQLException {
+		
+		Connection connection=getConnection();
+		
+		String query="SELECT * FROM appointment";
+		Statement st=connection.createStatement();
+		List<Appointment> appointmentList=new ArrayList<Appointment>();
+		ResultSet rs=st.executeQuery(query);
+		while(rs.next()) {
+			Appointment appointment=new Appointment();
+			appointment.setAppointmentID(rs.getInt("appointmentID"));
+			appointment.setConsultantFirstName(rs.getString("consultantfirstname"));
+			appointment.setConsultantLastName(rs.getString("consultantlastname"));
+			appointment.setConsultantEmail(rs.getString("consultantemail"));
+			appointment.setCountry(rs.getString("country"));
+			appointment.setJobSeekerEmail(rs.getString("jobseekeremail"));
+			appointment.setJobSeekerFirstName(rs.getString("jobseekerfirstname"));
+			appointment.setJobSeekerLastName(rs.getString("jobseekerlastname"));
+			appointment.setAppointmentDate(rs.getNString("appointmentdate"));
+			appointment.setAppointmentTime(rs.getString("appointmenttime"));
+			appointment.setJobField(rs.getString("jobfield"));
+			
+			appointmentList.add(appointment);
+		
+		}
+		st.close();
+		connection.close();
+		
+		return appointmentList;
+}
 }

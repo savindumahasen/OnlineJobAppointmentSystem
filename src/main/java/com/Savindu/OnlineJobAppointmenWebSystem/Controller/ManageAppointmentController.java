@@ -2,6 +2,8 @@ package com.Savindu.OnlineJobAppointmenWebSystem.Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -95,17 +97,18 @@ public class ManageAppointmentController extends HttpServlet {
 	}
 	private void viewAppointment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		clearMessage();
-		String email=request.getParameter("consultantemail");
-		
+		List<Appointment> appointment=new ArrayList<Appointment>();
 		try {
-			Appointment appointment=getManageJobAppointmentService().fetchSingleAppointment(email);
+			appointment=getManageJobAppointmentService().fetchAllJobAppointment();
 	
-			if(email.equals(appointment.getConsultantEmail())) {
+			if(appointment.size()>0) {
+				message="All the records are available successfully";
+				request.setAttribute("feedbackMessage",message);
 				request.setAttribute("appointment", appointment);
 				RequestDispatcher rd=request.getRequestDispatcher("ViewBookAppointment.jsp");
 				rd.forward(request, response);
 			}else {
-			   message=email+"doesn't have appointments yet";
+			   message="Record are not available";
 			   request.setAttribute("feedbackMessage",message);
 			   RequestDispatcher rd=request.getRequestDispatcher("ViewBookAppointment.jsp");
 			   rd.forward(request, response);

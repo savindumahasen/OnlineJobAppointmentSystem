@@ -1,6 +1,7 @@
 package com.Savindu.OnlineJobAppointmenWebSystem.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.JobAppointment;
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.JobAppointmentImp;
@@ -34,6 +35,11 @@ public class JobAppointmentService {
 	public Appointment fetchSingleAppointment(String email) throws ClassNotFoundException, SQLException {
 		
 		return getJobAppointmentDAO().fetchSingleJobAppointment(email);
+	}
+	public List<Appointment> fetchAllJobAppointment() throws ClassNotFoundException, SQLException{
+		return getJobAppointmentDAO().fetchAllJobAppointment();
+		
+		
 	}
 	
 	

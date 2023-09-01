@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib prefix="tag" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,12 +31,7 @@
 <div class="container">
  <h1>Consultant Appointments</h1>
 <form  class="appointment-form" action="getAppointmentController" >
-    <p style="color:magenta">${feedbackMessage}</p>
-   <div class="form-group">
-    <label for="exampleConsultant">Consultant Email</label>
-     <input type="email" class="form-control" class="email" name="consultantemail" readonly="readonly" value="${Email}" required>
-   </div>
-   <br/>
+    <p style="color:black">${feedbackMessage}</p>
    <button type="submit" class="btn btn-success" name="actionType1" value="viewAppointment">See Your Appointments</button>
   
    <br/><br/>
@@ -57,7 +53,7 @@
         </tr>
       </thead>
       <tbody>
-     
+          <tag:forEach var="appointment" items="${appointment}">
         <tr>
            <td>${appointment.appointmentID }</td>
            <td>${appointment.consultantFirstName}</td>
@@ -73,6 +69,7 @@
         
          
         </tr>
+        </tag:forEach>
       
       
       </tbody>

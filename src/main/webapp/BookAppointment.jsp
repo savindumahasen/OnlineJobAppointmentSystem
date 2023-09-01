@@ -135,9 +135,10 @@ h1{
 
 </div>
 
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
 
-
-<script type="text/javascript">
+<script>
 
    
 	     let consultantFirstName=document.getElementById("consultantfirstname").value;
@@ -156,7 +157,7 @@ h1{
 		      Subject : "Online Job Appointment",
 		      Body :fullBody
 		    }).then(
-				   message => alert(message);
+				   message => alert(message)
 			          
 			        
 	     );
