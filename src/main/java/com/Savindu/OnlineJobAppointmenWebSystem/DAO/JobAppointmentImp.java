@@ -121,7 +121,6 @@ public class JobAppointmentImp implements JobAppointment {
 		// TODO Auto-generated method stub
 		Connection connection=getConnection();
 		String query="UPDATE appointment SET consultantfirstname=?,consultantlastname=?,consultantemail=?,country=?,jobseekeremail=?,jobseekerfirstname=?,jobseekerlastname=?,appointmentdate=?,appointmenttime=?,jobfield=?,status=? WHERE appointmentID=?";
-		System.out.println(query);
 		PreparedStatement ps=connection.prepareStatement(query);
 		ps.setString(1,appointment.getConsultantFirstName());
 		ps.setString(2, appointment.getConsultantLastName());

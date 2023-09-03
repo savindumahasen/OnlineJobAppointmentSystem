@@ -59,21 +59,22 @@ h1{
    
    <form action="ManageAppointmentController"  class="bookappointment" method="POST">
       <p style="color:red;">${feedbackmessage}</p>  
+      <p style="color:magenta">${EmailMessage}</p>
       <div class="form-group">
-       <label for="consultantName">Consultant First Name</label>
+       <label for="consultantfirstname">Consultant First Name</label>
        <input type="text" class="form-control" id="consultantfirstname" class="consultantfirstname" readonly="readonly" name="consultantfirstname" value="${Message1}" required>
      
       </div>
   
      <br/>
     <div class="form-group">
-    <label for="consultantName">Consultant Last Name</label>
+    <label for="consultantlastname">Consultant Last Name</label>
     <input type="text" class="form-control" id="consultantlastname" class="consultantlastname" readonly="readonly" name="consultantlastname" value="${Message2}" required>
     
   </div>
   <br/>
     <div class="form-group">
-    <label for="consultantEmail">Consultant Email</label>
+    <label for="consultantemail">Consultant Email</label>
     <input type="email" class="form-control" id="consultantemail" class="consultantemail"  readonly="readonly" name="consultantemail" value="${Message}" required>
     
   </div>
@@ -81,38 +82,38 @@ h1{
 
  
   <div class="form-group">
-    <label for="exampleCountry">Country</label>
-    <input type=""text" class=" form-control"  id="country" readonly="readonly" name="country" value="${Message3}" ></input>
+    <label for="country">Country</label>
+    <input type=""text" class=" form-control"  id="" readonly="readonly" name="country" value="${Message3}" ></input>
     
   </div>
   <br/>
   
   <div class="form-group">
-    <label for="email">Job Seeker Email</label>
+    <label for="jobseekeremail">Job Seeker Email</label>
     <input type="email" class="form-control" id="jobseekeremail" class="jobseekeremail" name="jobseekeremail" required>
     
   </div>
   <br/>
       <div class="form-group">
-    <label for="exampleFirstName">Job Seeker First Name</label>
+    <label for="jobseekerfirstname">Job Seeker First Name</label>
     <input type="text" class="form-control" id="jobseekerfirstname" class="jobseekerfirstname" name="jobseekerfirstname" required>
     
   </div>
   <br/>
     <div class="form-group">
-    <label for="exampleFirstName">Job Seeker Last Name</label>
+    <label for="jobseekerlastname">Job Seeker Last Name</label>
     <input type="text" class="form-control" id="jobseekerlastname" class="jobseekerlastname" name="jobseekerlastname" required>
     
   </div>
   <br/>
    <div class="form-group">
-    <label for="exampleFirstName">Appointment Date</label>
+    <label for="date">Appointment Date</label>
     <input type="text" class="form-control" id="date" class="date" name="date"  readonly="readonly" value="${Message4}" required>
     
   </div>
   <br/>
    <div class="form-group">
-    <label for="exampleFirstName">Appointment Time</label>
+    <label for="time">Appointment Time</label>
     <input type="text" class="form-control" id="time" class="time" name="time"  readonly="readonly" value="${Message5}" required>
     
   </div>
@@ -155,8 +156,8 @@ h1{
 	     let appointmentDate=document.getElementById("date").value;
 	     let appointmentTime=document.getElementById("time").value;
 	     
-	     let body="Your Job Appointment is successfully Booked "+"<br/><br/>Consultant FirstName :"+consultantFirstName+"<br/>Consultant LastName :"+consultantLastName;
-	     let body1="Appointment Date :"+appointmentDate+"<br/>Appointment Time :"+appointmentTime;
+	     let body="Your Job Appointment is successfully Booked "+"<br/><br/>Consultant FirstName :"+consultantFirstName+"<br/></br>Consultant LastName :"+consultantLastName;
+	     let body1="<br/><br/>Appointment Date :"+appointmentDate+"<br/><br/>Appointment Time :"+appointmentTime;
 	     let fullBody=body+body1;
 	     function sendEmail(){
 	          Email.send({
@@ -165,11 +166,7 @@ h1{
 		      From : "savinduruhunuhewa@gmail.com",
 		      Subject : "Online Job Appointment",
 		      Body :fullBody
-		    }).then(
-				   message => alert(message)
-			          
-			        
-	     );
+		    })
    }
 
 </script>

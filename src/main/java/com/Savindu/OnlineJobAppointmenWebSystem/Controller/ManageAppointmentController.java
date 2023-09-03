@@ -53,6 +53,7 @@ public class ManageAppointmentController extends HttpServlet {
               
               if(actionType2.equals("bookAppointment")) {
             	  bookAppointment(request,response);
+            	 
               }else if(actionType2.equals("AcceptAppointment")) {
             	  updateAppointment(request,response);
               }else if(actionType2.equals("deleteAppointment")) {
@@ -93,7 +94,9 @@ public class ManageAppointmentController extends HttpServlet {
 		try {
 			if(getManageJobAppointmentService().addJobAppointment(appointment)) {
 				message="Appointment Booking  is  successfully confirmed";
+				message1="Email is sent successfully. Please check your spam or inbox";
 				request.setAttribute("feedbackmessage",message);
+				request.setAttribute("EmailMessage",message1);
 				RequestDispatcher rd=request.getRequestDispatcher("BookAppointment.jsp");
 				rd.forward(request, response);
 				
@@ -137,40 +140,20 @@ public class ManageAppointmentController extends HttpServlet {
 	    Appointment appointment=new Appointment();  
 	    String btnMessage="";
 	    int appointmentID=Integer.valueOf(request.getParameter("appointmentid"));
-	    System.out.println(appointmentID);
-		String consultantFirstName=request.getParameter("consultantfirstname");
-		 System.out.println(consultantFirstName);
-		//String consultantLastName=request.getParameter("consultantlastname");
-		 //System.out.println(consultantLastName);
-		//String consultantEmail=request.getParameter("consultantemail");
-		 //System.out.println(consultantEmail);
+	    String consultantFirstName=request.getParameter("consultantfirstname");
 		String country=request.getParameter("country");
-		 System.out.println(country);
-		//String jobSeekerEmail=request.getParameter("jobseekeremail");
-		 //System.out.println(jobSeekerEmail);
-		//String jobSeekerFirstName=request.getParameter("jobseekerfirstname");
-		 //System.out.println(jobSeekerFirstName);
-		String jobSeekerLastName=request.getParameter("jobseekerlastname");
-		 System.out.println(jobSeekerLastName);
+        String jobSeekerLastName=request.getParameter("jobseekerlastname");
 		String jobSeekerAppointmentDate=request.getParameter("jobseekerappointmentdate");
-		 System.out.println(jobSeekerAppointmentDate);
 		String jobSeekerAppointmentTime=request.getParameter("jobseekerappointmenttime");
-		 System.out.println(jobSeekerAppointmentTime);
 		String jobField=request.getParameter("jobfield");
-		 System.out.println(jobField);
 		String status=request.getParameter("status");
-		 System.out.println(status);
 		String status1="";
 	
         status="accepted";
 		status1=status;
 	    appointment.setAppointmentID(appointmentID);
 	    appointment.setConsultantFirstName(consultantFirstName);
-		//appointment.setConsultantLastName(consultantLastName);
-		//appointment.setConsultantEmail(consultantEmail);
 		appointment.setCountry(country);
-		//appointment.setJobSeekerEmail(jobSeekerEmail);
-		//appointment.setJobSeekerFirstName(jobSeekerFirstName);
 		appointment.setJobSeekerLastName(jobSeekerLastName);
 		appointment.setAppointmentDate(jobSeekerAppointmentDate);
 	    appointment.setAppointmentTime(jobSeekerAppointmentTime);
