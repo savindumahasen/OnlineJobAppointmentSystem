@@ -13,12 +13,23 @@
 
    body{
       background-color:powderblue;
+      
+      .nav-tabs{
+          margin-left:600px;
+       }
      .container{
          margin-top:150px;
     
        .appointment-form{
        
            max-width:400px;
+           
+           .table{
+               margin-left:0px;
+               width:100px;
+           
+           }
+           
        }
    }
    
@@ -26,47 +37,72 @@
 </style>
 </head>
 <body>
-
+<ul class="nav nav-tabs">
+             <li class="nav-item">
+                    <a class="nav-link" href="Home.jsp">Home</a>
+             </li>
+             <li class="nav-item">
+                   <a class="nav-link  " href="JobSeekerLogin.jsp">JobSeeker Login</a>
+            </li>
+             <li class="nav-item">
+                  <a class="nav-link" href="ConsultantLogin.jsp">Consultant Login</a>
+            </li>
+             <li class="nav-item">
+                  <a class="nav-link active" aria-current="page"  href="ViewBookAppointment.jsp">View BookAppointment</a>
+            </li>
+           <li class="nav-item">
+           <a class="nav-link" href="JobSeekerRegistration.jsp">JobSeeker Registration</a>
+          </li>
+      </ul>
 
 <div class="container">
+ 
  <h1>Consultant Appointments</h1>
+   
 <form  class="appointment-form" action="getAppointmentController" >
     <p style="color:black">${feedbackMessage}</p>
    <button type="submit" class="btn btn-success" name="actionType1" value="viewAppointment">See Your Appointments</button>
-  
-   <br/><br/>
-   <table class="table table-dark table-striped">
+</form>
+   <div class="table">
+   <table class="table">
+       <p style="color:black">${message}</p>
+       <p style="color:black">${message1}</p>
       <thead>
         <tr>
            <th>AppointmentID</th> 
-           <th>Consultant FirstName</th>
-           <th>Consultant LastName</th>
-           <th>Consultant Email</th>
+           <th>ConsultantFirstName</th>    
            <th>Country</th>
-           <th>JobSeeker Email</th>
-           <th>JobSeeker FirstName</th>
-           <th>JobSeeker LastName</th>
-           <th>Appointment Date</th>
-           <th>Appointment Time</th>
-           <th>Job Field</th>
+           <th>JobSeekerFirstName</th>
+           <th>AppointmentDate</th>
+           <th>AppointmentTime</th>
+           <th>JobField</th>
+           <th>State</th>
+           <th>Delete</th>
+           <th>Accept</th>
                  
         </tr>
       </thead>
       <tbody>
           <tag:forEach var="appointment" items="${appointment}">
         <tr>
-           <td>${appointment.appointmentID }</td>
-           <td>${appointment.consultantFirstName}</td>
-           <td>${appointment.consultantLastName }</td>
-           <td>${appointment.consultantEmail}</td>
-           <td>${appointment.country}</td>
-           <td>${appointment.jobSeekerEmail }</td>
-           <td>${appointment.jobSeekerFirstName}</td>
-           <td>${appointment.jobSeekerLastName}</td>
-           <td>${appointment.appointmentDate}</td>
-           <td>${appointment.appointmentTime}</td>
-           <td>${appointment.jobField}</td>
-        
+         <form action="ManageAppointmentController" method="POST">
+          
+           <td><input type="hidden"  name="appointmentid" value="${appointment.appointmentID}">${appointment.appointmentID}</input></td>
+           <td><input type="hidden" name="consultantfirstname" value="${appointment.consultantFirstName}">${appointment.consultantFirstName}</input></td>
+          
+         
+           <td><input type="hidden" name="country" value="${appointment.country}">${appointment.country}</input></td>
+         
+           <td><input type="hidden" name="jobseekerfirstname" value="${appointment.jobSeekerFirstName}">${appointment.jobSeekerFirstName }</input></td>
+           
+           <td><input type="hidden" name="jobseekerappointmentdate" value="${appointment.appointmentDate}">${appointment.appointmentDate}</input></td>
+           <td><input type="hidden" name="jobseekerappointmenttime" value="${appointment.appointmentTime}">${appointment.appointmentTime}</input></td>
+           <td><input type="hidden" name="jobfield" value="${appointment.jobField}">${appointment.jobField}</input></td>
+           <td><input type="hidden" name="status" value="${appointment.status}">${appointment.status}</input></td>
+    
+           <td><button type="submit" class="btn btn-danger" name="actionType2" value="deleteAppointment">Delete</button></td>
+           <td><button type="submit" class="btn btn-warning"   name="actionType2" value="AcceptAppointment">Accept</button></td>
+        </form>
          
         </tr>
         </tag:forEach>
@@ -75,8 +111,8 @@
       </tbody>
    
    </table>
+</div>
 
-</form>
 </div>
 </body>
 </html>

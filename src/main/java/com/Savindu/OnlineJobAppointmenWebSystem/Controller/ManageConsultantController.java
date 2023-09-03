@@ -58,6 +58,7 @@ public class ManageConsultantController extends HttpServlet {
 	}
 	
 	private boolean addConsultant(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		clearMessage();
 		Consultant consultant=new Consultant();
 		String firstName=request.getParameter("firstname");
 		String lastName=request.getParameter("lastname");
@@ -116,6 +117,7 @@ public class ManageConsultantController extends HttpServlet {
 		
 	}
 	private void selectConsultant(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		clearMessage();
 		String firstName=request.getParameter("firstname");
 		String lastName=request.getParameter("lastname");
 		String country=request.getParameter("country");
@@ -130,7 +132,6 @@ public class ManageConsultantController extends HttpServlet {
 		      String consultant1=consultant.getEmail();
 		    
 			if(email.equals(consultant1)){
-				message="Consultant Added successfully";
 				request.setAttribute("Message",email);
 				request.setAttribute("Message1",firstName);
 				request.setAttribute("Message2",lastName);
@@ -151,6 +152,7 @@ public class ManageConsultantController extends HttpServlet {
 		
 	}
 	private void consultantLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		clearMessage();
 		String email=request.getParameter("consultantemail");
 		
 		try {
@@ -162,7 +164,7 @@ public class ManageConsultantController extends HttpServlet {
 			}else {
 				message="Please Enter the Correct Email";
 				request.setAttribute("feedbackMessage",message);
-				RequestDispatcher rd=request.getRequestDispatcher("ConsultantLogin.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("getAppointmentController?actionType1=ViewBookAppointment.jsp");
 				rd.forward(request, response);
 				
 			}
@@ -176,4 +178,10 @@ public class ManageConsultantController extends HttpServlet {
 	}
 	
 	
+
+
+private void clearMessage() {
+	
+	message="";
+}
 }

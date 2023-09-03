@@ -27,7 +27,7 @@ public class JobAppointmentImp implements JobAppointment {
 	public boolean addJobAppointment(Appointment appointment)throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection connection=getConnection();
-		String query="INSERT INTO appointment (consultantfirstname,consultantlastname,consultantemail,country,jobseekeremail,jobseekerfirstname,jobseekerlastname,appointmentdate,appointmenttime,jobfield) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String query="INSERT INTO appointment (consultantfirstname,consultantlastname,consultantemail,country,jobseekeremail,jobseekerfirstname,jobseekerlastname,appointmentdate,appointmenttime,jobfield,status) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps=connection.prepareStatement(query);
 	    ps.setString(1, appointment.getConsultantFirstName());
 	    ps.setString(2,appointment.getConsultantLastName());
@@ -39,6 +39,7 @@ public class JobAppointmentImp implements JobAppointment {
 	    ps.setString(8,appointment.getAppointmentDate());
 	    ps.setString(9,appointment.getAppointmentTime());
 	    ps.setString(10,appointment.getJobField());
+	    ps.setString(11, appointment.getStatus());
 	    
 		
 	    boolean result=false;
@@ -74,6 +75,7 @@ public class JobAppointmentImp implements JobAppointment {
 			appointment.setAppointmentDate(rs.getNString("appointmentdate"));
 			appointment.setAppointmentTime(rs.getString("appointmenttime"));
 			appointment.setJobField(rs.getString("jobfield"));
+			appointment.setStatus(rs.getString("status"));
 			
 		}
 	    connection.close();
@@ -103,6 +105,7 @@ public class JobAppointmentImp implements JobAppointment {
 			appointment.setAppointmentDate(rs.getNString("appointmentdate"));
 			appointment.setAppointmentTime(rs.getString("appointmenttime"));
 			appointment.setJobField(rs.getString("jobfield"));
+			appointment.setStatus(rs.getString("status"));
 			
 			appointmentList.add(appointment);
 		
@@ -112,4 +115,57 @@ public class JobAppointmentImp implements JobAppointment {
 		
 		return appointmentList;
 }
+
+	@Override
+	public boolean updateJobAppointment(Appointment appointment) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection connection=getConnection();
+		String query="UPDATE appointment SET consultantfirstname=?,consultantlastname=?,consultantemail=?,country=?,jobseekeremail=?,jobseekerfirstname=?,jobseekerlastname=?,appointmentdate=?,appointmenttime=?,jobfield=?,status=? WHERE appointmentID=?";
+		System.out.println(query);
+		PreparedStatement ps=connection.prepareStatement(query);
+		ps.setString(1,appointment.getConsultantFirstName());
+		ps.setString(2, appointment.getConsultantLastName());
+		ps.setString(3,appointment.getConsultantEmail());
+		ps.setString(4,appointment.getCountry());
+		ps.setString(5,appointment.getJobSeekerEmail());
+		ps.setString(6,appointment.getJobSeekerFirstName());
+		ps.setString(7,appointment.getJobSeekerLastName());
+		ps.setString(8,appointment.getAppointmentDate());
+		ps.setString(9,appointment.getAppointmentTime());
+		ps.setString(10,appointment.getJobField());
+		ps.setString(11,appointment.getStatus());
+		ps.setInt(12,appointment.getAppointmentID());
+		
+		boolean result=false;
+		
+		if(ps.executeUpdate()>0) {
+			
+			   result=true;
+		}
+		ps.close();
+		connection.close();
+		return result;
+	}
+
+	@Override
+	public boolean deleteJobAppointment(int id) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection connection=getConnection();
+		
+		String query="DELETE FROM appointment WHERE appointmentID=?";
+		PreparedStatement ps=connection.prepareStatement(query);
+		ps.setInt(1,id);
+		
+		
+		boolean result=false;
+		
+		if(ps.executeUpdate()>0) {
+			
+			result=true;
+		}
+		
+		return result;
+	}
+	
+	
 }

@@ -13,13 +13,14 @@ public class Appointment {
 	private String jobField;
 	private String appointmentDate;
 	private String appointmentTime;
+	private String status;
 	
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Appointment(int appointmentID,String jobSeekerFirstName, String jobSeekerLastName, String country, String jobSeekerEmail, String consultantFirstName,
-		String consultantLastName,	String consultantEmail, String jobField,String appointmentDate,String appointmentTime) {
+		String consultantLastName,	String consultantEmail, String jobField,String appointmentDate,String appointmentTime,String status) {
 		super();
 		this.appointmentID=appointmentID;
 		this.jobSeekerFirstName = jobSeekerFirstName;
@@ -32,6 +33,13 @@ public class Appointment {
 		this.jobField = jobField;
 		this.appointmentDate=appointmentDate;
 		this.appointmentTime=appointmentTime;
+		this.status=status;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public int getAppointmentID() {
 		return appointmentID;

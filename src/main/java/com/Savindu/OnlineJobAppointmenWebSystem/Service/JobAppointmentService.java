@@ -32,6 +32,15 @@ public class JobAppointmentService {
 	public boolean addJobAppointment(Appointment appointment) throws ClassNotFoundException, SQLException {
 		return getJobAppointmentDAO().addJobAppointment(appointment);
 	}
+	
+	public boolean updateJobAppointment(Appointment appointment) throws ClassNotFoundException, SQLException {
+		
+		return getJobAppointmentDAO().updateJobAppointment(appointment);
+	}
+	public boolean deleteJobAppointment(int id) throws ClassNotFoundException, SQLException {
+		
+		return getJobAppointmentDAO().deleteJobAppointment(id);
+	}
 	public Appointment fetchSingleAppointment(String email) throws ClassNotFoundException, SQLException {
 		
 		return getJobAppointmentDAO().fetchSingleJobAppointment(email);

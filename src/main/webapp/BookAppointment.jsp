@@ -127,8 +127,17 @@ h1{
     <input type=text class=" form-control" id="jobfield" name ="jobfield" readonly="readonly" value="${Message6}"></input>
     
   </div>
-  <br/><br/>
-   <button onclick="sendEmail()" type="submit"  style="width:380px; margin-bottom:100px;" border-radius:10px" name="actionType1" value="bookAppointment" class="btn btn-success">Add</button>
+  <br/>
+     <div class="form-group">
+    <label for="state"></label>
+    <input type="hidden" class="form-control" id="state" class="state" name="state"  readonly="readonly" value="false" required>
+    
+  </div>
+  <br/>
+  
+  
+  <br/>
+   <button onclick="sendEmail()" type="submit"  style="width:380px; margin-bottom:100px;" border-radius:10px" name="actionType2" value="bookAppointment" class="btn btn-success">Add</button>
    
   
 </form>
