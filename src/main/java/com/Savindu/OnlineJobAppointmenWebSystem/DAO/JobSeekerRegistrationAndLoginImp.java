@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.DAOUtils.DBDriverManager;
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.DAOUtils.DBDriverManagerFactory;
@@ -58,6 +61,30 @@ public class JobSeekerRegistrationAndLoginImp implements JobSeekerRegistrationAn
 		ps.close();
 		connection.close();
 		return jobSeeker;
+		
+	}
+
+	@Override
+	public List<JobSeeker> fetchAllJobSeeker() throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection connection=getConnection();
+		String query="SELECT * FROM registration";
+		Statement st=connection.createStatement();
+		List<JobSeeker> jobSeekerList=new ArrayList<JobSeeker>();
+		ResultSet rs=st.executeQuery(query);
+		while(rs.next()) {
+			JobSeeker jobseeker=new JobSeeker();
+			jobseeker.setFirstName(rs.getString("firstname"));
+			jobseeker.setLastName(rs.getString("lastname"));
+			jobseeker.setEmail(rs.getString("email"));
+			jobseeker.setPassword(rs.getString("password"));
+			jobseeker.setConfirmPassword(rs.getString("confirmpassword"));
+		    jobSeekerList.add(jobseeker);
+		}
+		st.close();
+		connection.close();
+		
+		return jobSeekerList;
 		
 	}
 	

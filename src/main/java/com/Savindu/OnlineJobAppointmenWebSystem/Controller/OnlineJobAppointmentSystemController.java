@@ -104,7 +104,7 @@ public class OnlineJobAppointmentSystemController extends HttpServlet {
 		}else if((jobSeeker.getEmail().equals(email))&&(jobSeeker.getPassword().equals(password))) {
 			   message="Welcome to the Appointment Booking Page";
 			   request.setAttribute("feedbackmessage",message);
-			   RequestDispatcher rd=request.getRequestDispatcher("DashBoard.jsp");
+			   RequestDispatcher rd=request.getRequestDispatcher("AboutUS.jsp");
 			   rd.forward(request, response);
 		}else{
 			

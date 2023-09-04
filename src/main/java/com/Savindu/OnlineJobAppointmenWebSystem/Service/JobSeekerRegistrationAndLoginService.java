@@ -1,6 +1,7 @@
 package com.Savindu.OnlineJobAppointmenWebSystem.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.JobSeekerRegistrationAndLogin;
 import com.Savindu.OnlineJobAppointmenWebSystem.DAO.JobSeekerRegistrationAndLoginImp;
@@ -31,5 +32,9 @@ public class JobSeekerRegistrationAndLoginService {
 	}
 	public JobSeeker fetchSingleJobSeeker(String email) throws ClassNotFoundException, SQLException {
 		return getJobRegistrationDao().fetchSingleJobSeeker(email);
+	}
+	public List<JobSeeker> fetchAllJobSeeker() throws ClassNotFoundException, SQLException{
+		
+		return getJobRegistrationDao().fetchAllJobSeeker();
 	}
 }

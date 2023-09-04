@@ -86,10 +86,7 @@ public class ManageAppointmentController extends HttpServlet {
 		appointment.setAppointmentDate(appointmentDate);
 		appointment.setAppointmentTime(appointmentTime);
 		appointment.setStatus(state);
-		System.out.println(jobSeekerEmail);
-		System.out.println(consultantFirstName);
-		System.out.println(appointment);
-		System.out.println(state);
+	
 		
 		try {
 			if(getManageJobAppointmentService().addJobAppointment(appointment)) {
@@ -200,10 +197,16 @@ public class ManageAppointmentController extends HttpServlet {
 				RequestDispatcher rd=request.getRequestDispatcher("ViewBookAppointment.jsp");
 				rd.forward(request, response);
 				
+			}else {
+				message="AppointmentiD "+iD+" JobSeekerFirstName"+jobSeekerFirstName+" is not deleted successfully";
+				message1="click the see your Appointment Button to  see the table again";
+				request.setAttribute("message",message);
+				request.setAttribute("message1",message1);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 		      message=e.getMessage();
+		      System.out.println(message);
 		}
 		
 		

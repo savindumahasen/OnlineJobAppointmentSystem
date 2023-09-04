@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Online Job Appointement</title>
+<title>Manawise Online Job Appointment System</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <style type="text/css">
@@ -41,26 +41,7 @@
 
 <div class="container" >
            
-          <ul class="nav nav-tabs">
-               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="Home.jsp">Home</a>
-              </li>
-              <li class="nav-item">
-                 <a class="nav-link active" href="JobSeekerRegistration.jsp">JobSeeker Registration</a>
-             </li>
-                 <li class="nav-item">
-               <a class="nav-link"  href="JobSeekerLogin.jsp">JobSeeker Login</a>
-              </li>
-              <li class="nav-item">
-               <a class="nav-link" aria-current="page" href="DashBoard.jsp">DashBoard</a>
-              </li>
-              <li class="nav-item">
-               <a class="nav-link "  href="manageConsultantController?actionType1=viewConsultant">View Consultants</a>
-              </li>
-              <li class="nav-item">
-               <a class="nav-link" href="ConsultantLogin.jsp">ConsultantLogin</a>
-             </li>
-        </ul>
+         
 
          <form action="RegisterJobSeeker"  method="post" class="form-signup">
          

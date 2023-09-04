@@ -32,20 +32,7 @@
 </head>
 <body>
 
-       <ul class="nav nav-tabs">
-             <li class="nav-item">
-                    <a class="nav-link" href="Home.jsp">Home</a>
-             </li>
-             <li class="nav-item">
-                   <a class="nav-link active " aria-current="page" href="JobSeekerLogin.jsp">JobSeeker Login</a>
-            </li>
-             <li class="nav-item">
-                  <a class="nav-link" href="ConsultantLogin.jsp">Consultant Login</a>
-            </li>
-           <li class="nav-item">
-           <a class="nav-link" href="JobSeekerRegistration.jsp">JobSeeker Registration</a>
-          </li>
-      </ul>
+      
        <form action="getJobSeeker"  class="form-signup">
          
                <h2>Login</h2>

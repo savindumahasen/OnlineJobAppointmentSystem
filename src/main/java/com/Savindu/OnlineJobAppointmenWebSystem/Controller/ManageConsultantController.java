@@ -80,7 +80,8 @@ public class ManageConsultantController extends HttpServlet {
 			if(getManageConsultantService().addConsultant(consultant)) {
 				message="Consultant is added successfully confirmed";
 				request.setAttribute("feedbackmessage",message);
-				RequestDispatcher rd=request.getRequestDispatcher("ViewConsultant.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("ViewJobSeekers.jsp");
+				
 				rd.forward(request, response);
 			}else {
 				message="Consultant is not added successfully confirmed ";
@@ -96,6 +97,7 @@ public class ManageConsultantController extends HttpServlet {
 		
 	}
 	private void viewConsultants(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		clearMessage();
 		List<Consultant > consultantList=new ArrayList<Consultant>();
 		try {
 			consultantList=getManageConsultantService().fetchAllConsultant();

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Online Job Appointment</title>
+<title>Manawise Online Job Appointment System</title>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,6 +19,8 @@ h1{
  .nav-tabs{
   
      margin-left:500px;
+     background-color:red;
+     width:1200px;
   }
 .bookappointment{
     max-width:400px;
@@ -35,22 +37,22 @@ h1{
      
           <ul class="nav nav-tabs">
                <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="Home.jsp">Home</a>
+                <a style="color:white;" class="nav-link " aria-current="page" href="Home.jsp">Home</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link" href="JobSeekerLogin.jsp">Login</a>
+                 <a  style="color:white;" class="nav-link" href="JobSeekerLogin.jsp">Login</a>
              </li>
               <li class="nav-item">
-               <a class="nav-link" href="DashBoard.jsp">DashBoard</a>
+               <a  style="color:white;" class="nav-link" href="DashBoard.jsp">DashBoard</a>
               </li>
               <li class="nav-item">
                <a class="nav-link active"aria-current="page" href="BookAppointment.jsp">BookAppointment</a>
               </li>
               <li class="nav-item">
-               <a class="nav-link "  href="manageConsultantController?actionType1=viewConsultant">View Consultants</a>
+               <a style="color:white;" class="nav-link "  href="manageConsultantController?actionType1=viewConsultant">View Consultants</a>
               </li>
               <li class="nav-item">
-               <a class="nav-link" href="ConsultantLogin.jsp">ConsultantLogin</a>
+               <a style="color:white;" class="nav-link" href="ConsultantLogin.jsp">ConsultantLogin</a>
              </li>
         </ul>
    <h1>Welcome To Appointment Booking Page</h1>

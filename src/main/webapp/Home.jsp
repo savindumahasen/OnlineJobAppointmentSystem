@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Online Job Appointment</title>
+<title>Manawise Online Job Appointment System </title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <style type="text/css">
@@ -44,7 +44,7 @@
           <a class="nav-link" href="ConsultantLogin.jsp">Consultant Login</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="AdminLogin.jsp">Admin Login</a>
+          <a class="nav-link" href="AdminLogin.jsp">AdminLogin</a>
         </li>
       
       </ul>
@@ -52,7 +52,7 @@
     </div>
   </div>
 </nav>
-
+<img  style="width:400px;height:100px;margin-left:550px;margin-top:50px;" src="Images/logo.jpeg"  alt="manawiselogo" class="logo"></img>
 <h1>Online Job Appointment System</h1>
 <br/>
 <p style="margin-left:600px;">Welcome to our Job Appointment Booking system</p>

@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.ManageAppointmentController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ViewJobSeekerController</servlet-name>
+  	<display-name>ViewJobSeekerController</display-name>
+  	<description></description>
+  	<servlet-class>com.Savindu.OnlineJobAppointmenWebSystem.Controller.ViewJobSeekerController</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>OnlineJobAppointmentSystemController</servlet-name>
@@ -58,4 +64,9 @@
    	<servlet-name>ManageAppointmentController</servlet-name>
    	<url-pattern>/getAppointmentController</url-pattern>
    </servlet-mapping>
+
+     <servlet-mapping>
+     	<servlet-name>ViewJobSeekerController</servlet-name>
+     	<url-pattern>/getJobSeekerController</url-pattern>
+     </servlet-mapping>
 </web-app>
