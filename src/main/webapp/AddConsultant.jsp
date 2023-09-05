@@ -34,6 +34,7 @@ body{
 </head>
 <body>
   <div class="container">
+  <p>${feedbackMessage}</p>
   <h1>Add Consultant</h1>
   <form action="manageConsultantController" method="POST">
     <div class="form-group">

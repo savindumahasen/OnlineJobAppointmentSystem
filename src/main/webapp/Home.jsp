@@ -58,7 +58,7 @@
 <p style="margin-left:600px;">Welcome to our Job Appointment Booking system</p>
 <div class="body-section">
 
-<img style="width:1000px;margin-left:250px;margin-top:100px;" src="Images/HomeJobImage3.webp" class="home-image2"></img>
+<img style="width:1000px;margin-left:250px;margin-top:100px;margin-bottom:100px;" src="Images/HomeJobImage3.webp" class="home-image2"></img>
 
 </div>
 </body>

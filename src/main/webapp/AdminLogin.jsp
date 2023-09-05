@@ -29,8 +29,9 @@
          <img  class="adminImg" src="Images/AdminLogin.jpg" src="adminLogin"></img>
               <form action="LoginAdmin"  class="form-signup">
          
-               <h2 style="text-align:center;">Admin Login</h2>
-                <p>${feedbackmessage}</p>
+               <h2 style="text-align:center;">AdminLogin</h2>
+               
+                <p style="color:red;">${feedbackMessage}</p>
              
        
            
