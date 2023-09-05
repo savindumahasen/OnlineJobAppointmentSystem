@@ -139,6 +139,7 @@ public class ManageAppointmentController extends HttpServlet {
 	    int appointmentID=Integer.valueOf(request.getParameter("appointmentid"));
 	    String consultantFirstName=request.getParameter("consultantfirstname");
 		String country=request.getParameter("country");
+		String jobSeekerFirstName=request.getParameter("jobseekerfirstname");
         String jobSeekerLastName=request.getParameter("jobseekerlastname");
 		String jobSeekerAppointmentDate=request.getParameter("jobseekerappointmentdate");
 		String jobSeekerAppointmentTime=request.getParameter("jobseekerappointmenttime");
@@ -151,6 +152,7 @@ public class ManageAppointmentController extends HttpServlet {
 	    appointment.setAppointmentID(appointmentID);
 	    appointment.setConsultantFirstName(consultantFirstName);
 		appointment.setCountry(country);
+		appointment.setJobSeekerFirstName(jobSeekerFirstName);
 		appointment.setJobSeekerLastName(jobSeekerLastName);
 		appointment.setAppointmentDate(jobSeekerAppointmentDate);
 	    appointment.setAppointmentTime(jobSeekerAppointmentTime);
