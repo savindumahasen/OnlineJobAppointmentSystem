@@ -45,7 +45,7 @@ public class ViewJobSeekerController extends HttpServlet {
 		}
 	}
 
-	private void viewJobSeekers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void viewJobSeekers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<JobSeeker> jobSeekerList=new ArrayList<JobSeeker>();
 		try {

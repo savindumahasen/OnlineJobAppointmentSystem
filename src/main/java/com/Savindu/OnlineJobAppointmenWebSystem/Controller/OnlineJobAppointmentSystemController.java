@@ -125,8 +125,14 @@ public class OnlineJobAppointmentSystemController extends HttpServlet {
 		String password=request.getParameter("password");
 		try {
 			Admin admin=getAdminLoginService().fetchAdminLogin(email);
-			if((email.equals(admin.getEmail())&&(password.equals(admin.getPassword())))) {
-			
+			if(admin.getEmail()==null) {
+				 message="You dont have an this kind of Account";
+				 request.setAttribute("feedbackMessage",message);
+				 RequestDispatcher rd=request.getRequestDispatcher("AdminLogin.jsp");
+				 rd.forward(request, response);
+			}else if((email.equals(admin.getEmail())&&(password.equals(admin.getPassword())))) {
+			    message="Login is successfully confirmed";
+			    request.setAttribute("feedbackMessage",message);
 				RequestDispatcher rd=request.getRequestDispatcher("AddConsultant.jsp");
 				rd.forward(request, response);
 				
@@ -134,7 +140,7 @@ public class OnlineJobAppointmentSystemController extends HttpServlet {
 			}else {
 				message="Admin Login is  not Successfully Confirmed!";
 
-				request.setAttribute("feedbackmessage",message);
+				request.setAttribute("feedbackMessage",message);
 				RequestDispatcher rd=request.getRequestDispatcher("AdminLogin.jsp");
 				rd.forward(request, response);
 				

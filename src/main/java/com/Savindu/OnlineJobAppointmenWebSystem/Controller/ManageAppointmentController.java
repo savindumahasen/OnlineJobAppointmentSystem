@@ -91,7 +91,7 @@ public class ManageAppointmentController extends HttpServlet {
 		try {
 			if(getManageJobAppointmentService().addJobAppointment(appointment)) {
 				message="Appointment Booking  is  successfully confirmed";
-				message1="Email is sent successfully. Please check your spam or inbox";
+				message1="Email is sent successfully. Please check your spam,Inbox,trash or update";
 				request.setAttribute("feedbackmessage",message);
 				request.setAttribute("EmailMessage",message1);
 				RequestDispatcher rd=request.getRequestDispatcher("BookAppointment.jsp");
