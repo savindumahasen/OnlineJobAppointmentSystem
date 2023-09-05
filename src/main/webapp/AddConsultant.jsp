@@ -11,6 +11,11 @@
 <style type="text/css">
 body{
  
+     .nav-tabs{
+        background-color:red;
+        margin-left:800px;
+        
+     }
 }
 .heading{
       color:blue;
@@ -33,7 +38,25 @@ body{
 
 </head>
 <body>
-  <div class="container">
+  <ul class="nav nav-tabs">
+               <li class="nav-item">
+                <a style="color:white;" class="nav-link " href="Home.jsp">Home</a>
+              </li>
+              <li class="nav-item">
+                 <a  style="color:white;" class="nav-link" href="AdminLogin.jsp">AdminLogin</a>
+             </li>
+              <li class="nav-item">
+               <a  style="color:white;" class="nav-link" href="AboutUs.jsp">About Us</a>
+              </li>
+             
+              <li clss="nav-item">
+               <a style="color:black;" class="nav-link active" aria-current="page"   href="AddConsultant.jsp">Add Consultant</a>
+             </li>
+  </ul>
+  <img style="width:600px;height:1000px;margin-left:0px;margin-top:20px;" src="Images/consultant.jpg" class="addconsultantimage" alt="addconsultant"></img>
+  
+  <div class="container" style="margin-top:-900px; margin-left:800px;">
+  
   <p>${feedbackMessage}</p>
   <h1>Add Consultant</h1>
   <form action="manageConsultantController" method="POST">
