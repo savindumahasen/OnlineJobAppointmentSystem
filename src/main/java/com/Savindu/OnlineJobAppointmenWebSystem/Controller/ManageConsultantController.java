@@ -166,7 +166,7 @@ public class ManageConsultantController extends HttpServlet {
 			}else {
 				message="Please Enter the Correct Email";
 				request.setAttribute("feedbackMessage",message);
-				RequestDispatcher rd=request.getRequestDispatcher("getAppointmentController?actionType1=ViewBookAppointment.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("ConsultantLogin.jsp");
 				rd.forward(request, response);
 				
 			}
